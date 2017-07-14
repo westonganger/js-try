@@ -1,4 +1,5 @@
-# JS-try
+# JS-try [![Build Status](https://api.travis-ci.org/westonganger/js-try.svg?branch=master)](https://travis-ci.org/westonganger/js-try)
+
 <a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
 
 JS-try is a Javascript implementation of the try method from Rails for safe navigation.
