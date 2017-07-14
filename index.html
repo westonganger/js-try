@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>js-try Test Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>Testing js-try</h1>
+
+    <script src="src/try.js"></script>
+    <script type="text/javascript">
+      Try(undefined) === false || console.error('error');
+      Try(null) === false || console.error('error');
+      Try(false) === false || console.error('error');
+      Try(true) === true || console.error('error');
+      Try(0) === 0 || console.error('error');
+      Try('') === '' || console.error('error');
+      Try('foobar') === 'foobar' || console.error('error');
+      Try([]).length === [].length || console.error('error');
+      Try({}).length === {}.length || console.error('error');
+
+      ''.try('length') === 0 || console.error('error');
+      ''.try('foobar') === false || console.error('error');
+      'foobar'.try('charAt', 3) === 'b' || console.error('error');
+
+      var x = 0;
+      x.try('toString') === '0' || console.error('error');
+      x.try('foobar') === false || console.error('error');
+
+      [].try('sort').length === [].length || console.error('error');
+      [].try('foobar') === false || console.error('error');
+
+      var x = {};
+      x.try('toString') === "[object Object]" || console.error('error');
+      x.try('foobar') === false || console.error('error');
+    </script>
+  </body>
+</html>
