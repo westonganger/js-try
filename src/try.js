@@ -13,18 +13,14 @@
       return !!(x && x.constructor && x.call && x.apply);
     };
 
-    var isString = function(x){
-      return typeof x === 'string' || x instanceof String
-    };
-
     Object.prototype.try = function(x){
-      if(arguments.length > 1){
-        var args = Array.prototype.slice.call(arguments);
-        args.shift();
-      }
       var val = this[x];
-      if(isString(x) && (val || val === 0 || val === '')){
+      if(Try(val)){
         if(isFunction(val)){
+          if(arguments.length > 1){
+            var args = Array.prototype.slice.call(arguments);
+            args.shift();
+          }
           val = val.apply(this, args);
         }
         return Try(val);

@@ -31,11 +31,15 @@ describe('Try', function() {
     it('array', function() {
       assert.deepEqual([].try('sort'), []);
       assert.equal([].try('foobar'), false);
+      assert.equal([].try(0), false);
+      assert.equal([1].try(0), 1);
     });
 
     it('object', function() {
       assert.equal({}.try('toString'), "[object Object]");
       assert.equal({}.try('foobar'), false);
+      assert.equal({foo: 'bar'}.try('foo'), 'bar');
+      assert.equal({foo: 'bar'}.try('bar'), false);
     });
   });
 });

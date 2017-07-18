@@ -1,6 +1,6 @@
 {
   "name": "js-try",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "JS-try is a Javascript implementation of the try method from Rails for safe navigation",
   "main": "dist/js-try.min.js",
   "directories": {

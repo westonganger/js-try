@@ -13,7 +13,7 @@ npm install js-try
 bower install js-try
 ```
 
-#### Rails
+#### Rails / Bundler
 
 ```ruby
 # Gemfile
@@ -27,8 +27,6 @@ end
  *= require js-try
 */
 ```
-
-Rails 5.1+ should probably just install via yarn
 
 # Usage
 #### Require/Import
@@ -50,9 +48,13 @@ Try('foobar') == 'foobar';
 Try([]) == [];
 Try({}) == {};
 
+false.try('length') == false;
+true.try('length') == false;
+
 ''.try('length') == 0;
 ''.try('foobar') == false;
 'foobar'.try('charAt', 3) == 'b';
+''.try('badMethod').try('anotherBadMethod'); == false
 
 var x = 0;
 x.try('toString') == '0';
@@ -60,9 +62,13 @@ x.try('foobar') == false;
 
 [].try('sort') == [];
 [].try('foobar') == false;
+[1,2,3].try(2) == 3;
+[1,2,3].try(3) == false;
 
 {}.try('toString') == "[object Object]";
 {}.try('foobar') == false;
+{foo: 'bar'}.try('foo') == 'bar';
+{foo: 'bar'}.try('bar') == false;
 ```
 
 # Credits
