@@ -1,6 +1,6 @@
-# JS-try [![Build Status](https://api.travis-ci.org/westonganger/js-try.svg?branch=master)](https://travis-ci.org/westonganger/js-try)
+# JS-Try [![Build Status](https://api.travis-ci.org/westonganger/js-try.svg?branch=master)](https://travis-ci.org/westonganger/js-try)
 
-JS-try is a Javascript implementation of the try method from Rails for safe navigation.
+JS-Try is a Javascript implementation of the try method from Rails for safe navigation.
 
 # Install
 
