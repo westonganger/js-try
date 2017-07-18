@@ -1,7 +1,5 @@
 # JS-try [![Build Status](https://api.travis-ci.org/westonganger/js-try.svg?branch=master)](https://travis-ci.org/westonganger/js-try)
 
-<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
-
 JS-try is a Javascript implementation of the try method from Rails for safe navigation.
 
 # Install
@@ -16,6 +14,7 @@ bower install js-try
 ```
 
 #### Rails
+
 ```ruby
 # Gemfile
 source 'https://rails-assets.org' do
@@ -29,6 +28,8 @@ end
 */
 ```
 
+Rails 5.1+ should probably just install via yarn
+
 # Usage
 #### Require/Import
 ```javascript
@@ -37,27 +38,40 @@ var Try = require('js-try');
 import { Try } from 'js-try';
 ```
 
-#### Examples
+#### Basic Examples
 ```javascript
-var str = null;
+Try(undefined) == false;
+Try(null) == false;
+Try(false) == false;
+Try(true) == true;
+Try(0) == 0;
+Try('') == '';
+Try('foobar') == 'foobar';
+Try([]) == [];
+Try({}) == {};
 
-Try(str); // => false
+''.try('length') == 0;
+''.try('foobar') == false;
+'foobar'.try('charAt', 3) == 'b';
 
-str.try('length'); // => false
+var x = 0;
+x.try('toString') == '0';
+x.try('foobar') == false;
 
-Try(str).try('length'); // => false
+[].try('sort') == [];
+[].try('foobar') == false;
 
-str = 'foobar';
-
-Try(str); // => 'foobar'
-
-str.try('length'); // => 6
-
-Try(str).try('length'); // => 6
+{}.try('toString') == "[object Object]";
+{}.try('foobar') == false;
 ```
 
-
 # Credits
-Created by Weston Ganger - @westonganger
+Created by Weston Ganger - [@westonganger](https://github.com/westonganger)
 
-<a href='https://ko-fi.com/A5071NK' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=a' border='0' alt='Buy Me a Coffee' /></a> 
+For any consulting or contract work please contact me via my company website: [Solid Foundation Web Development](https://solidfoundationwebdev.com)
+
+## Similar Libraries Created By Me
+- [Rearmed-JS](https://github.com/westonganger/rearmed-js)
+- [Rearmed-CSS](https://github.com/westonganger/rearmed-css)
+- [Rearmed Ruby](https://github.com/westonganger/rearmed-rb)
+- [Rearmed Rails](https://github.com/westonganger/rearmed_rails)
