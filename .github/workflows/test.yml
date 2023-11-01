@@ -1,0 +1,28 @@
+name: Test
+on:
+  push:
+    branches: ['master']
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          ### TEST MULTIPLE JS VERSIONS
+          - js_version: "12" # Oldest testable version
+          - js_version: "latest"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Javascript
+        uses: actions/setup-node@v3
+        with:
+          node-version: "${{ matrix.js_version }}"
+
+      - run: npm install
+
+      - run: npm test
