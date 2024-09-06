@@ -77,11 +77,3 @@ x.try('foobar') == false;
 
 # Credits
 Created by Weston Ganger - [@westonganger](https://github.com/westonganger)
-
-For any consulting or contract work please contact me via my company website: [Solid Foundation Web Development](https://solidfoundationwebdev.com)
-
-## Similar Libraries Created By Me
-- [Rearmed-JS](https://github.com/westonganger/rearmed-js)
-- [Rearmed-CSS](https://github.com/westonganger/rearmed-css)
-- [Rearmed Ruby](https://github.com/westonganger/rearmed-rb)
-- [Rearmed Rails](https://github.com/westonganger/rearmed_rails)
